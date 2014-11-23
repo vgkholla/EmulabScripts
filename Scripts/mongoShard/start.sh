@@ -150,6 +150,7 @@ do
 			let replNum=replNum+1;
 			let port=port+1;
 		done
+		let LAST_REPLICA_INDEX=replNum-1;
 		echo ""
 		let counter=counter+1;
 done
@@ -188,6 +189,10 @@ then
 	        		INIT="$INIT${RETURN}rs.initiate(rsconf)"
 	        		replicaSetAddNodes[$counter]=$node
 	        		startNode=$node
+	        	elif [[ ($replNum -eq $LAST_REPLICA_INDEX ) && ("$ARBITERS" == "TRUE") ]]
+	        	then
+	        		COMMAND="rs.addArb(\"$node:$port\")"
+	        		CONTENTS="$CONTENTS$COMMAND${RETURN}" 
 	        	else
 	        		COMMAND="rs.add(\"$node:$port\")"
 	        		CONTENTS="$CONTENTS$COMMAND${RETURN}" 

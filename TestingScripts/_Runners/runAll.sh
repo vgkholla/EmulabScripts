@@ -1,3 +1,4 @@
-./addData.sh
+#./addData.sh
 ./shardCollection.sh
-./reshard.sh
+./addData.sh
+#./reshard.sh

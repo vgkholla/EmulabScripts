@@ -1,2 +1,2 @@
-sh.reShardCollection("amazondb.review_collection",{ProductID:1})
-//sh.reShardCollection("amazondb.review_collection",{ReviewID:1})
+sh.reShardCollection("amazondb.review_collection",{user_id:1})
+//sh.reShardCollection("amazondb.review_collection",{product_id:1})
